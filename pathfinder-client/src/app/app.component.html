@@ -1,0 +1,21 @@
+<div class="flex w-full flex-col items-center">
+  <div *ngFor="let row of map; let y = index" class="flex flex-row">
+    <div *ngFor="let unit of row; let x = index" class="flex flex-col">
+      <div class="w-4 h-4 m-0.5" [class.bg-red-500]="unit == 1" [class.bg-green-500]="unit == 0"
+        [class.bg-blue-500]="unit == 2" [class.bg-yellow-200]="unit == 3" (click)="onMapClick(x, y)">
+      </div>
+      <!-- <div *ngIf="!unit" class="w-10 h-10 m-1 bg-green-500"></div> -->
+    </div>
+  </div>
+  <div>
+    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 m-1 rounded" (click)="state = 'start'"
+      [class.bg-green-500]="state != 'start'">start</button>
+    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 m-1 rounded" (click)="state = 'finish'"
+      [class.bg-green-500]="state != 'finish'">finish</button>
+    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 m-1 rounded" (click)="state = 'wall'"
+      [class.bg-green-500]="state != 'wall'">wall</button>
+    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 m-1 rounded"
+      (click)="onFind()">find</button>
+  </div>
+
+</div>
